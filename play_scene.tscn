@@ -1,0 +1,38 @@
+[gd_scene load_steps=3 format=3 uid="uid://b1f3oxxe0j1hv"]
+
+[ext_resource type="PackedScene" uid="uid://buafxlc75qtin" path="res://player/player.tscn" id="1_53l42"]
+[ext_resource type="PackedScene" uid="uid://cqsc16gn72x30" path="res://wall.tscn" id="2_l1uel"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="player" parent="." instance=ExtResource("1_53l42")]
+position = Vector2(667, 233)
+
+[node name="shits" type="Node" parent="."]
+
+[node name="wall" parent="shits" instance=ExtResource("2_l1uel")]
+position = Vector2(911, 630)
+
+[node name="wall2" parent="shits" instance=ExtResource("2_l1uel")]
+position = Vector2(208, 749)
+
+[node name="wall3" parent="shits" instance=ExtResource("2_l1uel")]
+position = Vector2(-140, -289)
+
+[node name="wall4" parent="shits" instance=ExtResource("2_l1uel")]
+position = Vector2(1373, -285)
+
+[node name="wall5" parent="shits" instance=ExtResource("2_l1uel")]
+position = Vector2(1216, 974)
+
+[node name="wall6" parent="shits" instance=ExtResource("2_l1uel")]
+position = Vector2(-754, 1071)
+
+[node name="wall7" parent="shits" instance=ExtResource("2_l1uel")]
+position = Vector2(-144, 1724)
+
+[node name="wall8" parent="shits" instance=ExtResource("2_l1uel")]
+position = Vector2(-385, 177)
+
+[node name="wall9" parent="shits" instance=ExtResource("2_l1uel")]
+position = Vector2(509, -582)
