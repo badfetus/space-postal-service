@@ -4,6 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://du7ihrwx7gmlk" path="res://player/player_sprite.tga" id="2_jre62"]
 
 [node name="player" type="RigidBody2D"]
+max_contacts_reported = 1
+contact_monitor = true
 script = ExtResource("1_ucn4h")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
