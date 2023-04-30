@@ -14,6 +14,7 @@ shape = SubResource("CircleShape2D_dcmrf")
 [node name="joint" type="PinJoint2D" parent="ropeconnect"]
 position = Vector2(1, 49)
 node_a = NodePath("../..")
+softness = 1.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_jre62")

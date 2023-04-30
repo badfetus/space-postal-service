@@ -46,7 +46,6 @@ func handleCargo(cargo: RigidBody2D):
 
 		var joint = parent.get_node("ropeconnect/joint")
 		cargo.global_position = joint.global_position
-		joint.add_child(cargo)
 		joint.node_a = parent.get_path()
 		joint.node_b = cargo.get_path()
 

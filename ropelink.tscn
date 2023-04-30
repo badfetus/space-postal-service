@@ -16,8 +16,8 @@ mass = 0.01
 shape = SubResource("CapsuleShape2D_xa3en")
 
 [node name="joint" type="PinJoint2D" parent="ropeconnect"]
-bias = 0.9
-softness = 0.1
+bias = 0.1
+softness = 1.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.05, 0.05)
