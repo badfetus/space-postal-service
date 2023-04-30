@@ -1,0 +1,25 @@
+[1mdiff --git a/cargo/cargo.tscn b/cargo/cargo.tscn[m
+[1mindex f2f59a7..e83da62 100644[m
+[1m--- a/cargo/cargo.tscn[m
+[1m+++ b/cargo/cargo.tscn[m
+[36m@@ -6,7 +6,7 @@[m
+ size = Vector2(128, 128)[m
+ [m
+ [node name="cargo" type="RigidBody2D" groups=["cargo"]][m
+[31m-mass = 0.01[m
+[32m+[m[32mmass = 0.25[m
+ [m
+ [node name="Sprite2D" type="Sprite2D" parent="."][m
+ texture = ExtResource("1_cvknj")[m
+[1mdiff --git a/player/player.tscn b/player/player.tscn[m
+[1mindex 2fa6c3c..26d2742 100644[m
+[1m--- a/player/player.tscn[m
+[1m+++ b/player/player.tscn[m
+[36m@@ -14,6 +14,7 @@[m [mshape = SubResource("CircleShape2D_dcmrf")[m
+ [node name="joint" type="PinJoint2D" parent="ropeconnect"][m
+ position = Vector2(1, 49)[m
+ node_a = NodePath("../..")[m
+[32m+[m[32mbias = 0.1[m
+ softness = 1.0[m
+ [m
+ [node name="Sprite2D" type="Sprite2D" parent="."][m
