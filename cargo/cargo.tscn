@@ -6,7 +6,7 @@
 size = Vector2(128, 128)
 
 [node name="cargo" type="RigidBody2D" groups=["cargo"]]
-mass = 0.25
+mass = 0.01
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_cvknj")

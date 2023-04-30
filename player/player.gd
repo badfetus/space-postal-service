@@ -3,7 +3,7 @@ extends RigidBody2D
 var saved_velocity = Vector2(0, 0)
 var expected_velocity
 
-var ropeLength = 1
+var ropeLength = 15
 var PIECE = preload("res://ropelink.tscn")
 var lastrope
 
