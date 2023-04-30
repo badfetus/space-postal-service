@@ -5,6 +5,7 @@ var expected_velocity
 
 var ropeLength = 15
 var PIECE = preload("res://ropelink.tscn")
+var attachedLoad
 
 var scene = self.get_parent()
 
@@ -24,12 +25,12 @@ func _physics_process(delta):
 	handleCollisions()
 	if Input.is_action_pressed("Cargo"):
 		dumpCargo()
+	handleCargoDistance()
 
 var attached = false
 func on_collision(body):
 	if body.is_in_group("cargo"):
 		call_deferred("handleCargo", body)
-		#handleCargo(body)
 
 func handleCollisions():
 	var velocity_change = saved_velocity - linear_velocity
@@ -48,6 +49,8 @@ func handleCargo(cargo: RigidBody2D):
 		cargo.global_position = joint.global_position
 		joint.node_a = parent.get_path()
 		joint.node_b = cargo.get_path()
+		
+		attachedLoad = cargo
 
 
 func addPiece(parent):
@@ -69,3 +72,10 @@ func dumpCargo():
 			else: lastJoint = joint2
 		joint.get_children()[0].queue_free()
 		lastJoint.node_b = joint.get_path()
+
+func handleCargoDistance():
+	if(attached):
+		var dist = self.global_transform.origin.distance_to(attachedLoad.global_transform.origin)
+		if(dist > 600):
+			print("Rope snapping, dist: ", dist)
+			dumpCargo()
