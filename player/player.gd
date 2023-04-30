@@ -63,4 +63,10 @@ func dumpCargo():
 	if(attached):
 		attached = false
 		var joint: PinJoint2D = self.get_node("ropeconnect/joint")
+		var lastJoint = joint
+		while(true):
+			var joint2 = lastJoint.get_node("ropeconnect/joint")
+			if(joint2 == null): break
+			else: lastJoint = joint2
 		joint.get_children()[0].queue_free()
+		lastJoint.node_b = joint.get_path()
