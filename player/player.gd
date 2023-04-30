@@ -6,6 +6,8 @@ var expected_velocity
 var ropeLength = 15
 var PIECE = preload("res://ropelink.tscn")
 
+var scene = self.get_parent()
+
 func _ready():
 	contact_monitor = true
 	max_contacts_reported = 100
@@ -41,13 +43,18 @@ func handleCargo(cargo: RigidBody2D):
 
 		var joint = parent.get_node("ropeconnect/joint")
 		cargo.global_position = joint.global_position
-		joint.add_child(cargo)
+		print(cargo.get_parent().name)
+		if(cargo.get_parent().name != "Scene"): 
+			cargo.reparent(joint)
+			print("a")
+		else: 
+			print("b")
+			joint.add_child(cargo)
 		joint.node_a = parent.get_path()
 		joint.node_b = cargo.get_path()
 
 
 func addPiece(parent, i):
-	print(i)
 	var joint = parent.get_node("ropeconnect/joint")
 	var piece = PIECE.instantiate()
 	joint.add_child(piece)
@@ -60,16 +67,3 @@ func dumpCargo():
 		attached = false
 		var joint: PinJoint2D = self.get_node("ropeconnect/joint")
 		joint.get_children()[0].queue_free()
-		#var array = Array()
-		#for i in ropeLength:
-		#	var rope = joint.node_b
-		#	joint = rope.get_node("ropeconnect/joint")
-		#	array[i] = rope
-		
-		#for i in ropeLength:
-		#	var j = ropeLength - i - 1 #traverse array backwards
-		#	var rope: RigidBody2D = array[j]
-		#	var parent: RigidBody2D = array[j-1]
-		#	if(j == 0): parent = self
-		#	parent.remove_child(rope)
-		#	rope.queue_free()
