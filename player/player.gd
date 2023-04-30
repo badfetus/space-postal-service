@@ -18,6 +18,8 @@ func _physics_process(delta):
 		apply_central_force(Vector2(-sin(rotation), cos(rotation)) * -2000)
 	apply_torque(Input.get_axis("Left", "Right") * 15_000)
 	handleCollisions()
+	if Input.is_action_pressed("Cargo"):
+		dumpCargo()
 
 var attached = false
 func on_collision(body):
@@ -52,3 +54,22 @@ func addPiece(parent, i):
 	joint.node_a = parent.get_path()
 	joint.node_b = piece.get_path()
 	return piece
+
+func dumpCargo():
+	if(attached):
+		attached = false
+		var joint: PinJoint2D = self.get_node("ropeconnect/joint")
+		joint.get_children()[0].queue_free()
+		#var array = Array()
+		#for i in ropeLength:
+		#	var rope = joint.node_b
+		#	joint = rope.get_node("ropeconnect/joint")
+		#	array[i] = rope
+		
+		#for i in ropeLength:
+		#	var j = ropeLength - i - 1 #traverse array backwards
+		#	var rope: RigidBody2D = array[j]
+		#	var parent: RigidBody2D = array[j-1]
+		#	if(j == 0): parent = self
+		#	parent.remove_child(rope)
+		#	rope.queue_free()
