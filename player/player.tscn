@@ -1,9 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://buafxlc75qtin"]
+[gd_scene load_steps=7 format=3 uid="uid://buafxlc75qtin"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_ucn4h"]
 [ext_resource type="Texture2D" uid="uid://du7ihrwx7gmlk" path="res://player/player_sprite.tga" id="2_jre62"]
+[ext_resource type="Texture2D" uid="uid://by11ciaxs10ui" path="res://player/particle_flame.tga" id="3_uhsmc"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dcmrf"]
+
+[sub_resource type="Curve" id="Curve_d3w1q"]
+_data = [Vector2(0, 0.354545), 0.0, 0.0, 0, 0, Vector2(0.396552, 0.636364), 0.0, 0.0, 0, 0, Vector2(0.849138, 0.554545), -0.903896, -0.903896, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="Gradient" id="Gradient_yl6u0"]
+offsets = PackedFloat32Array(0, 0.338308, 0.661692, 1)
+colors = PackedColorArray(0.997526, 0.945768, 0.739999, 1, 0.882353, 0.847059, 0.309804, 1, 0.870588, 0.301961, 0, 1, 0.862745, 0, 0, 1)
 
 [node name="player" type="RigidBody2D"]
 script = ExtResource("1_ucn4h")
@@ -24,3 +33,19 @@ zoom = Vector2(0.5, 0.5)
 
 [node name="ship" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(0, -64, 64, 64, 0, 24, -64, 64)
+
+[node name="Particles" type="CPUParticles2D" parent="."]
+position = Vector2(0, 50)
+emitting = false
+amount = 10000
+lifetime = 0.1
+texture = ExtResource("3_uhsmc")
+direction = Vector2(0, 0)
+spread = 4.36
+gravity = Vector2(0, 0)
+initial_velocity_min = 362.9
+initial_velocity_max = 427.42
+scale_amount_min = 0.1
+scale_amount_max = 0.2
+scale_amount_curve = SubResource("Curve_d3w1q")
+color_ramp = SubResource("Gradient_yl6u0")

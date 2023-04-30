@@ -19,8 +19,12 @@ func _ready():
 	
 
 func _physics_process(delta):
+	var particles = get_node("Particles")
+	particles.emitting = false
 	if Input.is_action_pressed("Boost"):
 		apply_central_force(Vector2(-sin(rotation), cos(rotation)) * -2000)
+		particles.emitting = true
+		particles.direction = Vector2(-sin(rotation), cos(rotation))
 	apply_torque(Input.get_axis("Left", "Right") * 15_000)
 	handleCollisions()
 	if Input.is_action_pressed("Cargo"):
