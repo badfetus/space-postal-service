@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://b1f3oxxe0j1hv"]
+[gd_scene load_steps=6 format=3 uid="uid://b1f3oxxe0j1hv"]
 
 [ext_resource type="PackedScene" uid="uid://buafxlc75qtin" path="res://player/player.tscn" id="1_53l42"]
 [ext_resource type="PackedScene" uid="uid://cqsc16gn72x30" path="res://wall.tscn" id="2_l1uel"]
 [ext_resource type="PackedScene" uid="uid://c36r31gr38bvi" path="res://cargo/cargo.tscn" id="3_3sh2j"]
+[ext_resource type="PackedScene" uid="uid://b4h7bhwygmnh5" path="res://PauseMenu.tscn" id="4_f7mxr"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_3j22p"]
 bounce = 0.5
@@ -59,4 +60,8 @@ scale = Vector2(100, 1)
 
 [node name="wall2" parent="wall2" instance=ExtResource("2_l1uel")]
 position = Vector2(138.68, -5132)
+scale = Vector2(100, 1)
+
+[node name="PauseMenu" parent="." instance=ExtResource("4_f7mxr")]
+position = Vector2(123, 2337)
 scale = Vector2(100, 1)

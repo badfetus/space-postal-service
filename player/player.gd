@@ -8,6 +8,8 @@ var PIECE = preload("res://ropelink.tscn")
 
 var scene = self.get_parent()
 
+var paused = false
+
 func _ready():
 	contact_monitor = true
 	max_contacts_reported = 100
