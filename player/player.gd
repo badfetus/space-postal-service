@@ -28,7 +28,8 @@ func _physics_process(delta):
 var attached = false
 func on_collision(body):
 	if body.is_in_group("cargo"):
-		handleCargo(body)
+		call_deferred("handleCargo", body)
+		#handleCargo(body)
 
 func handleCollisions():
 	var velocity_change = saved_velocity - linear_velocity
@@ -41,22 +42,16 @@ func handleCargo(cargo: RigidBody2D):
 		attached = true
 		var parent = self
 		for i in ropeLength:
-			parent = addPiece(parent, i)
+			parent = addPiece(parent)
 
 		var joint = parent.get_node("ropeconnect/joint")
 		cargo.global_position = joint.global_position
-		print(cargo.get_parent().name)
-		if(cargo.get_parent().name != "Scene"): 
-			cargo.reparent(joint)
-			print("a")
-		else: 
-			print("b")
-			joint.add_child(cargo)
+		joint.add_child(cargo)
 		joint.node_a = parent.get_path()
 		joint.node_b = cargo.get_path()
 
 
-func addPiece(parent, i):
+func addPiece(parent):
 	var joint = parent.get_node("ropeconnect/joint")
 	var piece = PIECE.instantiate()
 	joint.add_child(piece)
