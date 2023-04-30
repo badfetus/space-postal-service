@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://bh8dnns5kafns"]
+[gd_scene load_steps=3 format=3 uid="uid://t8i27ak4ceor"]
 
 [ext_resource type="Texture2D" uid="uid://bdqiy5mgxrak3" path="res://icon.svg" id="1_kl1nn"]
 
@@ -8,6 +8,8 @@ height = 6.0
 
 [node name="link" type="RigidBody2D"]
 position = Vector2(0, 9)
+collision_layer = 2
+collision_mask = 4
 mass = 0.01
 
 [node name="ropeconnect" type="CollisionShape2D" parent="."]
