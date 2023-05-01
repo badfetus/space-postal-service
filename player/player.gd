@@ -7,9 +7,11 @@ var ropeLength = 20
 var PIECE = preload("res://ropelink.tscn")
 var attachedLoad
 
-var scene = self.get_parent()
-
 var paused = false
+
+var isDead = false
+var isDying = false
+var dyingTime:float = 0
 
 func _ready():
 	contact_monitor = true
@@ -19,17 +21,25 @@ func _ready():
 	
 
 func _physics_process(delta):
-	var particles = get_node("Particles")
-	particles.emitting = false
-	if Input.is_action_pressed("Boost"):
-		apply_central_force(Vector2(-sin(rotation), cos(rotation)) * -2000)
-		particles.emitting = true
-		particles.direction = Vector2(-sin(rotation), cos(rotation))
-	apply_torque(Input.get_axis("Left", "Right") * 15_000)
-	handleCollisions()
-	if Input.is_action_pressed("Cargo"):
-		dumpCargo()
-	handleCargoDistance()
+	if(isDying):
+		dyingTime += delta
+		if(dyingTime > 3):
+			isDead = true
+		$Particles.emitting = false
+		linear_damp = 99999
+		$TextureRect.visible = true
+	else:
+		var particles = get_node("Particles")
+		particles.emitting = false
+		if Input.is_action_pressed("Boost"):
+			apply_central_force(Vector2(-sin(rotation), cos(rotation)) * -2000)
+			particles.emitting = true
+			particles.direction = Vector2(-sin(rotation), cos(rotation))
+		apply_torque(Input.get_axis("Left", "Right") * 15_000)
+		handleCollisions()
+		if Input.is_action_pressed("Cargo"):
+			dumpCargo()
+		handleCargoDistance()
 
 var attached = false
 func on_collision(body):
@@ -39,7 +49,7 @@ func on_collision(body):
 func handleCollisions():
 	var velocity_change = saved_velocity - linear_velocity
 	if(velocity_change.length() > 1500):
-		print("dead, collision speed: ", velocity_change.length())
+		isDying = true
 	saved_velocity = linear_velocity
 
 func handleCargo(cargo: RigidBody2D):
@@ -81,9 +91,7 @@ func dumpCargo():
 func handleCargoDistance():
 	if(attached):
 		var dist = self.global_transform.origin.distance_to(attachedLoad.global_transform.origin)
-		print(dist)
 		if(dist > 400):
-			print("Rope snapping, dist: ", dist)
 			dumpCargo()
 
 func onTopOf(cargo: RigidBody2D):

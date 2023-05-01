@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Ludum-dare-53"
-run/main_scene="res://play_scene.tscn"
+run/main_scene="res://Demo.tscn"
 config/features=PackedStringArray("4.0", "Mobile")
 config/icon="res://icon.svg"
 

@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://cycchdjh1qcsd"]
+
+[ext_resource type="Script" path="res://zoneH.gd" id="1_45u3h"]
+[ext_resource type="Texture2D" uid="uid://dko7sf0d1ce64" path="res://area2.png" id="2_sl5ce"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iqpbx"]
+
+[node name="zone" type="Area2D"]
+input_pickable = false
+script = ExtResource("1_45u3h")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_repeat = 2
+texture = ExtResource("2_sl5ce")
+region_rect = Rect2(-50000, -50000, 50000, 50000)
+
+[node name="collider" type="CollisionShape2D" parent="."]
+scale = Vector2(12.7, 12.7)
+shape = SubResource("RectangleShape2D_iqpbx")

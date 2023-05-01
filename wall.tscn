@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cqsc16gn72x30"]
 
-[ext_resource type="Texture2D" uid="uid://bdqiy5mgxrak3" path="res://icon.svg" id="1_48ile"]
+[ext_resource type="Texture2D" uid="uid://c57jfs5vvh7h6" path="res://wall.png" id="1_tqvs4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7k7j0"]
 size = Vector2(128, 129)
@@ -8,7 +8,9 @@ size = Vector2(128, 129)
 [node name="wall" type="StaticBody2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_48ile")
+texture_repeat = 2
+texture = ExtResource("1_tqvs4")
+region_rect = Rect2(-128, -100, 100, 100)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -0.5)
