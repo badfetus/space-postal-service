@@ -1,9 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://b1f3oxxe0j1hv"]
+[gd_scene load_steps=9 format=3 uid="uid://d4bqee6m1grtp"]
 
 [ext_resource type="PackedScene" uid="uid://buafxlc75qtin" path="res://player/player.tscn" id="1_53l42"]
 [ext_resource type="PackedScene" uid="uid://cqsc16gn72x30" path="res://wall.tscn" id="2_l1uel"]
-[ext_resource type="PackedScene" uid="uid://c36r31gr38bvi" path="res://cargo/cargo.tscn" id="3_3sh2j"]
 [ext_resource type="PackedScene" uid="uid://b4h7bhwygmnh5" path="res://PauseMenu.tscn" id="4_f7mxr"]
+[ext_resource type="PackedScene" uid="uid://d0dwop8u0m0w" path="res://cargo/cargoLight.tscn" id="5_ahjpn"]
+[ext_resource type="PackedScene" uid="uid://7mh3iv0jseay" path="res://cargo/cargoHeavy.tscn" id="6_qileg"]
+[ext_resource type="PackedScene" uid="uid://bsrol811a3p4l" path="res://cargo/cargoMedium.tscn" id="6_rymdh"]
+[ext_resource type="Texture2D" uid="uid://df166ul7vk2qq" path="res://bg.png" id="7_qv7vy"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_3j22p"]
 bounce = 0.5
@@ -43,9 +46,6 @@ position = Vector2(-385, 177)
 [node name="wall9" parent="shits" instance=ExtResource("2_l1uel")]
 position = Vector2(509, -582)
 
-[node name="cargo" parent="." instance=ExtResource("3_3sh2j")]
-position = Vector2(932, 391)
-
 [node name="wall" parent="." instance=ExtResource("2_l1uel")]
 position = Vector2(-1331, 570)
 scale = Vector2(1, 100)
@@ -65,3 +65,19 @@ scale = Vector2(100, 1)
 [node name="PauseMenu" parent="." instance=ExtResource("4_f7mxr")]
 position = Vector2(123, 2337)
 scale = Vector2(100, 1)
+
+[node name="cargoM" parent="." instance=ExtResource("6_rymdh")]
+position = Vector2(932, 391)
+
+[node name="cargoL" parent="." instance=ExtResource("5_ahjpn")]
+position = Vector2(203, 598)
+
+[node name="cargoH" parent="." instance=ExtResource("6_qileg")]
+position = Vector2(1227, 816)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -5
+texture_repeat = 2
+texture = ExtResource("7_qv7vy")
+region_enabled = true
+region_rect = Rect2(-25000, -25000, 50000, 50000)

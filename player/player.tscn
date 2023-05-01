@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://buafxlc75qtin"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_ucn4h"]
-[ext_resource type="Texture2D" uid="uid://du7ihrwx7gmlk" path="res://player/player_sprite.tga" id="2_jre62"]
+[ext_resource type="Texture2D" uid="uid://em73vkxmab25" path="res://player/ship.png" id="2_uhu1l"]
 [ext_resource type="Texture2D" uid="uid://by11ciaxs10ui" path="res://player/particle_flame.tga" id="3_uhsmc"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dcmrf"]
@@ -15,18 +15,20 @@ offsets = PackedFloat32Array(0, 0.338308, 0.661692, 1)
 colors = PackedColorArray(0.997526, 0.945768, 0.739999, 1, 0.882353, 0.847059, 0.309804, 1, 0.870588, 0.301961, 0, 1, 0.862745, 0, 0, 1)
 
 [node name="player" type="RigidBody2D"]
+z_index = 1
 script = ExtResource("1_ucn4h")
 
 [node name="ropeconnect" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_dcmrf")
 
 [node name="joint" type="PinJoint2D" parent="ropeconnect"]
-position = Vector2(1, 49)
+position = Vector2(0, 24)
 node_a = NodePath("../..")
 softness = 1.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_jre62")
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_uhu1l")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(0.5, 0.5)
@@ -35,7 +37,8 @@ zoom = Vector2(0.5, 0.5)
 polygon = PackedVector2Array(0, -64, 64, 64, 0, 24, -64, 64)
 
 [node name="Particles" type="CPUParticles2D" parent="."]
-position = Vector2(0, 50)
+z_index = -1
+position = Vector2(0, 24)
 emitting = false
 amount = 10000
 lifetime = 0.1
@@ -43,8 +46,8 @@ texture = ExtResource("3_uhsmc")
 direction = Vector2(0, 0)
 spread = 4.36
 gravity = Vector2(0, 0)
-initial_velocity_min = 362.9
-initial_velocity_max = 427.42
+initial_velocity_min = 450.0
+initial_velocity_max = 550.0
 scale_amount_min = 0.1
 scale_amount_max = 0.2
 scale_amount_curve = SubResource("Curve_d3w1q")

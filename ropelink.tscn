@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://t8i27ak4ceor"]
 
-[ext_resource type="Texture2D" uid="uid://bdqiy5mgxrak3" path="res://icon.svg" id="1_kl1nn"]
+[ext_resource type="Texture2D" uid="uid://c33soubny0bqp" path="res://rope.png" id="1_r2iye"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xa3en"]
 radius = 3.0
@@ -20,5 +20,5 @@ bias = 0.1
 softness = 1.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.05, 0.05)
-texture = ExtResource("1_kl1nn")
+scale = Vector2(0.025, 0.05)
+texture = ExtResource("1_r2iye")

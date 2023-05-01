@@ -3,7 +3,7 @@ extends RigidBody2D
 var saved_velocity = Vector2(0, 0)
 var expected_velocity
 
-var ropeLength = 15
+var ropeLength = 20
 var PIECE = preload("res://ropelink.tscn")
 var attachedLoad
 
@@ -43,11 +43,11 @@ func handleCollisions():
 	saved_velocity = linear_velocity
 
 func handleCargo(cargo: RigidBody2D):
-	if(!attached && linear_velocity.length() < 1000):
+	if(!attached && linear_velocity.length() < 1000 && onTopOf(cargo)):
 		attached = true
 		var parent = self
 		for i in ropeLength:
-			parent = addPiece(parent)
+			parent = addPiece(parent, cargo.mass)
 
 		var joint = parent.get_node("ropeconnect/joint")
 		cargo.global_position = joint.global_position
@@ -57,9 +57,10 @@ func handleCargo(cargo: RigidBody2D):
 		attachedLoad = cargo
 
 
-func addPiece(parent):
+func addPiece(parent, mass):
 	var joint = parent.get_node("ropeconnect/joint")
 	var piece = PIECE.instantiate()
+	piece.mass = mass
 	joint.add_child(piece)
 	joint.node_a = parent.get_path()
 	joint.node_b = piece.get_path()
@@ -80,6 +81,11 @@ func dumpCargo():
 func handleCargoDistance():
 	if(attached):
 		var dist = self.global_transform.origin.distance_to(attachedLoad.global_transform.origin)
-		if(dist > 600):
+		print(dist)
+		if(dist > 400):
 			print("Rope snapping, dist: ", dist)
 			dumpCargo()
+
+func onTopOf(cargo: RigidBody2D):
+	var diff = global_transform.origin - cargo.global_transform.origin
+	return (abs((diff).x) < 120 && diff.y < 0) 
