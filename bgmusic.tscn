@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cjebm851urnbu"]
+
+[ext_resource type="AudioStream" uid="uid://bn7y6ikqq06nr" path="res://BO_space_song.wav" id="1_rfl58"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer"]
+process_mode = 3
+stream = ExtResource("1_rfl58")
+autoplay = true

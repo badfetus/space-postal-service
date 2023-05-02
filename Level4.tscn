@@ -1,0 +1,71 @@
+[gd_scene load_steps=12 format=3 uid="uid://515jq2omt215"]
+
+[ext_resource type="Script" path="res://levelHandler.gd" id="1_ufjna"]
+[ext_resource type="PackedScene" uid="uid://4tcaftxgsele" path="res://player/player.tscn" id="2_puveo"]
+[ext_resource type="PackedScene" uid="uid://cqsc16gn72x30" path="res://wall.tscn" id="3_841kr"]
+[ext_resource type="PackedScene" uid="uid://bsrol811a3p4l" path="res://cargo/cargoMedium.tscn" id="4_s3yvl"]
+[ext_resource type="PackedScene" uid="uid://d0dwop8u0m0w" path="res://cargo/cargoLight.tscn" id="5_kgywo"]
+[ext_resource type="PackedScene" uid="uid://7mh3iv0jseay" path="res://cargo/cargoHeavy.tscn" id="6_k6dia"]
+[ext_resource type="PackedScene" uid="uid://d2d67a1h4mgyj" path="res://zone0.tscn" id="7_7sk0l"]
+[ext_resource type="PackedScene" uid="uid://x4c0v16wlx8a" path="res://zone1.tscn" id="8_jusbc"]
+[ext_resource type="PackedScene" uid="uid://cycchdjh1qcsd" path="res://zoneH.tscn" id="9_72yln"]
+[ext_resource type="Texture2D" uid="uid://df166ul7vk2qq" path="res://bg.png" id="10_sjnj7"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_3j22p"]
+bounce = 0.5
+
+[node name="Level4" type="Node2D"]
+script = ExtResource("1_ufjna")
+
+[node name="player" parent="." instance=ExtResource("2_puveo")]
+position = Vector2(-621, 2169)
+physics_material_override = SubResource("PhysicsMaterial_3j22p")
+
+[node name="shits" type="Node" parent="."]
+
+[node name="wall" parent="." instance=ExtResource("3_841kr")]
+position = Vector2(-1331, 570)
+scale = Vector2(1, 100)
+
+[node name="wall" parent="wall" instance=ExtResource("3_841kr")]
+position = Vector2(2531, 570.16)
+scale = Vector2(1, 100)
+
+[node name="wall2" parent="." instance=ExtResource("3_841kr")]
+position = Vector2(123, 2337)
+scale = Vector2(100, 1)
+
+[node name="wall2" parent="wall2" instance=ExtResource("3_841kr")]
+position = Vector2(149.71, -2756)
+scale = Vector2(100, 1)
+
+[node name="cargoM" parent="." instance=ExtResource("4_s3yvl")]
+position = Vector2(-944, 2158)
+
+[node name="cargoL" parent="." instance=ExtResource("5_kgywo")]
+position = Vector2(-3425, 2168)
+
+[node name="cargoH" parent="." instance=ExtResource("6_k6dia")]
+position = Vector2(-385, 2163)
+
+[node name="zoneL" parent="." instance=ExtResource("7_7sk0l")]
+z_index = -1
+position = Vector2(-3411, 2198)
+
+[node name="zoneM" parent="." instance=ExtResource("8_jusbc")]
+z_index = -1
+position = Vector2(388, 2143)
+
+[node name="zoneH" parent="." instance=ExtResource("9_72yln")]
+position = Vector2(798, 2146)
+
+[node name="background" type="Sprite2D" parent="."]
+z_index = -5
+texture_repeat = 2
+texture = ExtResource("10_sjnj7")
+region_enabled = true
+region_rect = Rect2(-25000, -25000, 50000, 50000)
+
+[node name="wall3" parent="." instance=ExtResource("3_841kr")]
+position = Vector2(-16, 3118)
+scale = Vector2(1, 40)

@@ -1,6 +1,6 @@
-[gd_scene load_steps=12 format=3 uid="uid://d4bqee6m1grtp"]
+[gd_scene load_steps=12 format=3 uid="uid://ijnneqgmmquf"]
 
-[ext_resource type="Script" path="res://level1.gd" id="1_5vapc"]
+[ext_resource type="Script" path="res://levelHandler.gd" id="1_7qcmm"]
 [ext_resource type="PackedScene" uid="uid://4tcaftxgsele" path="res://player/player.tscn" id="2_0l21g"]
 [ext_resource type="PackedScene" uid="uid://cqsc16gn72x30" path="res://wall.tscn" id="3_vhh2k"]
 [ext_resource type="PackedScene" uid="uid://bsrol811a3p4l" path="res://cargo/cargoMedium.tscn" id="5_tw00k"]
@@ -15,7 +15,7 @@
 bounce = 0.5
 
 [node name="Scene" type="Node2D"]
-script = ExtResource("1_5vapc")
+script = ExtResource("1_7qcmm")
 
 [node name="player" parent="." instance=ExtResource("2_0l21g")]
 position = Vector2(667, 233)

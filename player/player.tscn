@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://4tcaftxgsele"]
+[gd_scene load_steps=13 format=3 uid="uid://4tcaftxgsele"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_ucn4h"]
 [ext_resource type="PackedScene" uid="uid://b4h7bhwygmnh5" path="res://PauseMenu.tscn" id="2_36uf2"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://by11ciaxs10ui" path="res://player/particle_flame.tga" id="3_uhsmc"]
 [ext_resource type="Shader" path="res://player/smoke.gdshader" id="4_irpiq"]
 [ext_resource type="Texture2D" uid="uid://bdqiy5mgxrak3" path="res://icon.svg" id="5_vn0le"]
+[ext_resource type="PackedScene" uid="uid://b2bg6m88lwu5a" path="res://Win.tscn" id="7_n4k8w"]
+[ext_resource type="PackedScene" uid="uid://taislkublx6e" path="res://Death.tscn" id="8_8adg5"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dcmrf"]
 
@@ -71,3 +73,11 @@ offset_top = -64.0
 offset_right = 64.0
 offset_bottom = 64.0
 texture = ExtResource("5_vn0le")
+
+[node name="Victory" parent="." instance=ExtResource("7_n4k8w")]
+visible = false
+
+[node name="Death" parent="." instance=ExtResource("8_8adg5")]
+visible = false
+offset_top = 200.0
+offset_bottom = 200.0

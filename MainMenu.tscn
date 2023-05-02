@@ -1,0 +1,126 @@
+[gd_scene load_steps=2 format=3 uid="uid://cp2oprvnf8vj7"]
+
+[ext_resource type="Script" path="res://MainMenu.gd" id="1_nvryv"]
+
+[node name="MainMenu" type="ColorRect"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0)
+script = ExtResource("1_nvryv")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -5.0
+offset_right = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="CenterContainer"]
+custom_minimum_size = Vector2(1024, 512)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="Grid" type="GridContainer" parent="CenterContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+columns = 5
+
+[node name="1" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/Grid"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 100
+text = "1"
+
+[node name="2" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/Grid"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 100
+text = "1"
+
+[node name="3" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/Grid"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 100
+text = "1"
+
+[node name="4" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/Grid"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 100
+text = "1"
+
+[node name="5" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/Grid"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 100
+text = "1"
+
+[node name="6" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/Grid"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 100
+text = "1"
+
+[node name="7" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/Grid"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 100
+text = "1"
+
+[node name="8" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/Grid"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 100
+text = "1"
+
+[node name="9" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/Grid"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 100
+text = "1"
+
+[node name="10" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/Grid"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 100
+text = "1"
+
+[node name="11" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/Grid"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 100
+text = "1"

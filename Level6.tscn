@@ -1,0 +1,81 @@
+[gd_scene load_steps=12 format=3 uid="uid://dkwd4gwio01mj"]
+
+[ext_resource type="Script" path="res://Level6.gd" id="1_pqtjo"]
+[ext_resource type="PackedScene" uid="uid://4tcaftxgsele" path="res://player/player.tscn" id="2_e6mso"]
+[ext_resource type="PackedScene" uid="uid://cqsc16gn72x30" path="res://wall.tscn" id="3_bnxag"]
+[ext_resource type="PackedScene" uid="uid://bsrol811a3p4l" path="res://cargo/cargoMedium.tscn" id="4_w110p"]
+[ext_resource type="PackedScene" uid="uid://d0dwop8u0m0w" path="res://cargo/cargoLight.tscn" id="5_wsuyy"]
+[ext_resource type="PackedScene" uid="uid://7mh3iv0jseay" path="res://cargo/cargoHeavy.tscn" id="6_crdwa"]
+[ext_resource type="PackedScene" uid="uid://d2d67a1h4mgyj" path="res://zone0.tscn" id="7_qclhi"]
+[ext_resource type="PackedScene" uid="uid://x4c0v16wlx8a" path="res://zone1.tscn" id="8_ibuis"]
+[ext_resource type="PackedScene" uid="uid://cycchdjh1qcsd" path="res://zoneH.tscn" id="9_v0g3d"]
+[ext_resource type="Texture2D" uid="uid://df166ul7vk2qq" path="res://bg.png" id="10_ttsgp"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_3j22p"]
+bounce = 0.5
+
+[node name="Level6" type="Node2D"]
+script = ExtResource("1_pqtjo")
+
+[node name="player" parent="." instance=ExtResource("2_e6mso")]
+position = Vector2(-797, 5092)
+physics_material_override = SubResource("PhysicsMaterial_3j22p")
+
+[node name="shits" type="Node" parent="."]
+
+[node name="wall" parent="." instance=ExtResource("3_bnxag")]
+position = Vector2(-1331, 570)
+scale = Vector2(1, 100)
+
+[node name="wall2" parent="." instance=ExtResource("3_bnxag")]
+position = Vector2(70, 5335)
+scale = Vector2(100, 1)
+
+[node name="cargoM" parent="." instance=ExtResource("4_w110p")]
+position = Vector2(2930, 5103)
+
+[node name="cargoL" parent="." instance=ExtResource("5_wsuyy")]
+position = Vector2(-401, 5118)
+
+[node name="cargoH" parent="." instance=ExtResource("6_crdwa")]
+position = Vector2(3946, 4881)
+
+[node name="zoneL" parent="." instance=ExtResource("7_qclhi")]
+z_index = -1
+position = Vector2(583, 2846)
+scale = Vector2(3, 3)
+
+[node name="zoneM" parent="." instance=ExtResource("8_ibuis")]
+z_index = -1
+position = Vector2(2971, 5095)
+
+[node name="zoneH" parent="." instance=ExtResource("9_v0g3d")]
+position = Vector2(3955, 5104)
+
+[node name="background" type="Sprite2D" parent="."]
+z_index = -5
+texture_repeat = 2
+position = Vector2(-30, 136)
+texture = ExtResource("10_ttsgp")
+region_enabled = true
+region_rect = Rect2(-25000, -25000, 50000, 50000)
+
+[node name="wall3" parent="." instance=ExtResource("3_bnxag")]
+position = Vector2(-210, 4170)
+scale = Vector2(10, 1)
+
+[node name="wall8" parent="." instance=ExtResource("3_bnxag")]
+position = Vector2(303, 3304)
+scale = Vector2(10, 1)
+
+[node name="wall4" parent="." instance=ExtResource("3_bnxag")]
+position = Vector2(15094, -419)
+scale = Vector2(10000, 1)
+
+[node name="wall5" parent="." instance=ExtResource("3_bnxag")]
+position = Vector2(1200, 57586)
+scale = Vector2(1, 10000)
+
+[node name="wall6" parent="." instance=ExtResource("3_bnxag")]
+position = Vector2(-2057, 4170)
+scale = Vector2(15, 1)

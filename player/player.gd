@@ -67,10 +67,10 @@ func handleCargo(cargo: RigidBody2D):
 		attachedLoad = cargo
 
 
-func addPiece(parent, mass):
+func addPiece(parent, cargoMass):
 	var joint = parent.get_node("ropeconnect/joint")
 	var piece = PIECE.instantiate()
-	piece.mass = mass
+	piece.mass = cargoMass
 	joint.add_child(piece)
 	joint.node_a = parent.get_path()
 	joint.node_b = piece.get_path()
